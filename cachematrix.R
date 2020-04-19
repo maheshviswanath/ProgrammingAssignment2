@@ -20,15 +20,15 @@ makeCacheMatrix <- function(x = matrix()) {
 ## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
-  inverseMatrix <- x$getInverse()
-  if(!is.null(inverseMatrix)) {
-    message("getting cached inverse")
-    return(inverseMatrix)
+  inverseMatrix <- x$getInverse() ## return inverse of matrix already cached
+  if(!is.null(inverseMatrix)) { ## check if cache present
+    message("getting cached inverse") ## message
+    return(inverseMatrix) ## return stored inverse to console
   }
-  origMatrix <- x$get()
-  inverseMatrix <- solve(origMatrix)
-  x$setInverse(inverseMatrix)
-  inverseMatrix
+  origMatrix <- x$get() ## return original matrix
+  inverseMatrix <- solve(origMatrix) ## find inverse of matrix
+  x$setInverse(inverseMatrix) ## set inverse in cache as new inverse of matrix
+  inverseMatrix ## return the inverse to console
 }
 
 ## a <- c(1,2,3,0,1,4,5,6,0)
